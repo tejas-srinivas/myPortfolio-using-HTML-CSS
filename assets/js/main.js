@@ -23,51 +23,6 @@ function linkaction(){
 
 navLink.forEach(n => n.addEventListener('click',linkaction))
 
-// ==============================Typing Effect==========================
-const textArray = ["Web Developer","Logo Designer"]
-const typingDelay = 200
-const erasingDelay = 100
-const newTextDelay = 2000
-let textIndex = 0
-let charIndex = 0
-
-const typeTextSpan = document.querySelector(".typed-text");
-// const cursorSpan = document.querySelector(".cursor");
-
-function type(){
-    if(charIndex < textArray[textIndex].length){
-        // if(!cursorSpan.classList.contains("typing")) {cursorSpan.classList.add("typing")}
-        typeTextSpan.textContent += textArray[textIndex].charAt(charIndex)
-        charIndex++
-        setTimeout(type,typingDelay)
-    }
-    else{
-        // cursorSpan.classList.remove("typing")
-        setTimeout(erase,newTextDelay)
-    }
-}
-
-function erase(){
-    if(charIndex>0){
-        // if(!cursorSpan.classList.contains("typing")) {cursorSpan.classList.add("typing")}
-        typeTextSpan.textContent = textArray[textIndex].substring(0,charIndex-1);
-        charIndex--
-        setTimeout(erase,erasingDelay)
-    }else{
-        textIndex++
-        // cursorSpan.classList.remove("typing")
-        if(textIndex>=textArray.length){
-            textIndex=0
-        }
-        setTimeout(type,typingDelay)
-    }
-}
-
-document.addEventListener("DOMContentLoaded",function(){
-    setTimeout(type,typingDelay+1100)
-})
-
-
 // ==================== skills ===================================
 const skillsContent = document.getElementsByClassName('skills__content'),
       skillsHeader = document.querySelectorAll('.skills__header')

@@ -3,22 +3,20 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="icon" type="image/x-icon" href="assets/image/profile_1.png">
         <title>My Portfolio</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- =========== ICONS =========== -->
+        <!-- ============= ICONS ============= -->
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
         <!-- ============== CSS ============== -->
         <link rel="stylesheet" href="assets/css/style.css">
-        <!-- ========== JS =========== -->
+        <!-- ============== JS =============== -->
         
         <script src="assets/js/main.js" async defer></script>
     </head>
     <body>
-        <!-- [if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif] -->
         <div class="wrapper_1">
             <header class="header" id="header">
                 <nav class="nav container">
@@ -86,6 +84,51 @@
                             <h2 class="home__subtitle" >Hello, I'm </h2>
                             <h1 class="home__title" style="font-weight: 700;">Tejas Srinivas</h1>
                             <h3 class="home__subtitle"><span class="typed-text"></span><span class="cursor">&nbsp;</span></h3>
+                            <!-- ==============================Typing Effect========================== -->
+                            <script>
+                                const textArray = ["Web Developer","Logo Designer"]
+                                const typingDelay = 200
+                                const erasingDelay = 100
+                                const newTextDelay = 2000
+                                let textIndex = 0
+                                let charIndex = 0
+
+                                const typeTextSpan = document.querySelector(".typed-text");
+                                // const cursorSpan = document.querySelector(".cursor");
+
+                                function type(){
+                                    if(charIndex < textArray[textIndex].length){
+                                        // if(!cursorSpan.classList.contains("typing")) {cursorSpan.classList.add("typing")}
+                                        typeTextSpan.textContent += textArray[textIndex].charAt(charIndex)
+                                        charIndex++
+                                        setTimeout(type,typingDelay)
+                                    }
+                                    else{
+                                        // cursorSpan.classList.remove("typing")
+                                        setTimeout(erase,newTextDelay)
+                                    }
+                                }
+
+                                function erase(){
+                                    if(charIndex>0){
+                                        // if(!cursorSpan.classList.contains("typing")) {cursorSpan.classList.add("typing")}
+                                        typeTextSpan.textContent = textArray[textIndex].substring(0,charIndex-1);
+                                        charIndex--
+                                        setTimeout(erase,erasingDelay)
+                                    }else{
+                                        textIndex++
+                                        // cursorSpan.classList.remove("typing")
+                                        if(textIndex>=textArray.length){
+                                            textIndex=0
+                                        }
+                                        setTimeout(type,typingDelay)
+                                    }
+                                }
+
+                                document.addEventListener("DOMContentLoaded",function(){
+                                    setTimeout(type,typingDelay+1100)
+                                })
+                            </script>
                             <p class="home__description">A recent Information Science Graduate, with a passion for innovative technologies and problem solving.</p>
                             <a href="#contact" class="button button--flex">
                                 Contact Me&nbsp;<i class="uil uil-message button__icon" style="display:contents;"></i>
