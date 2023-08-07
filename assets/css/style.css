@@ -726,6 +726,21 @@ img {
     .qualification__data {
         gap: .5rem;
     }
+   
+    .portfolio__content {
+    background-color: var(--portfolio-offset-color);
+    border-radius: 1.25rem;
+    height: 18rem;
+    align-items: center;
+}
+}
+
+@media screen and (min-width:368px){
+    .portfolio__content {
+        background-color: var(--portfolio-offset-color);
+        border-radius: 1.25rem;
+        height: 27rem;
+        align-items: center;
 }
 
 /* ===============Medium device===================== */
